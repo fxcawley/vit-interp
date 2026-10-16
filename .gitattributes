@@ -1,0 +1,3 @@
+# Keep hash-bound experiment text stable across Windows and WSL checkouts.
+pilot/** text=auto eol=lf
+pilot/**/*.png binary
