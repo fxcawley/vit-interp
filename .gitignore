@@ -1,0 +1,17 @@
+# external checkouts and scratch
+direction-D/external/
+direction-D/code/runs/
+direction-D/code/data/
+**/__pycache__/
+*.pyc
+.venv/
+venv/
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.egg-info/
+.ipynb_checkpoints/
+# editor / os
+.DS_Store
+Thumbs.db
