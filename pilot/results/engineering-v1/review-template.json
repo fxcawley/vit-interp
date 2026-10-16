@@ -1,0 +1,19 @@
+{
+  "manifest_sha256": "9ce398133cf994691368c3dea4be362f2a2078f46ab6c6a9d783582248615f0a",
+  "reviewer": "",
+  "inspected_files": [],
+  "required_files": [
+    "grid-first.png",
+    "grid-largest.png",
+    "grid-all-pairs.png",
+    "tile-first.png",
+    "tile-largest.png",
+    "tile-all-pairs.png",
+    "effects.png"
+  ],
+  "data_provenance_verified": false,
+  "all_edits_plausible": false,
+  "largest_effects_and_controls_reviewed": false,
+  "no_postscore_exclusions": false,
+  "notes": ""
+}

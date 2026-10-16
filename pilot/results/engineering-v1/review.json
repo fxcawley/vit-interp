@@ -1,0 +1,19 @@
+{
+  "manifest_sha256": "9ce398133cf994691368c3dea4be362f2a2078f46ab6c6a9d783582248615f0a",
+  "reviewer": "Devin; assistant visual/engineering inspection, not an independent scientific review",
+  "inspected_files": [
+    "grid-all-pairs.png",
+    "tile-all-pairs.png",
+    "grid-first.png",
+    "grid-largest.png",
+    "tile-first.png",
+    "tile-largest.png",
+    "effects.png"
+  ],
+  "data_provenance_verified": true,
+  "all_edits_plausible": false,
+  "largest_effects_and_controls_reviewed": true,
+  "no_postscore_exclusions": true,
+  "notes": "Provenance is verified as generated engineering fixtures, not MVTec. Inspected all receiver/edit contact sheets, fixed first examples, the explicitly selected largest effects and all-condition uncertainty. The sham pastes can themselves create conspicuous local structural discontinuities and strong detector responses. The local defect-minus-sham positive-control criterion does not pass. These images validate software behavior, not industrial defect plausibility. A visually strong largest-effect panel does not license a scientific claim. The rerendered export changes figure typography only; summary.json has the same SHA256 as the original run.",
+  "scientific_conclusion": "none; real-data assets remain blocked"
+}

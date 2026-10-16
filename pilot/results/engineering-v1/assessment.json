@@ -1,0 +1,20 @@
+{
+  "decision": "engineering_only",
+  "primary": "grid/hard",
+  "all_conditions": {
+    "grid/hard": "engineering_only",
+    "grid/feather": "engineering_only",
+    "tile/hard": "engineering_only",
+    "tile/feather": "engineering_only"
+  },
+  "visual_inspection_recorded": true,
+  "review_gate_passed": false,
+  "scope": "pilot spending decision only",
+  "unmet_publication_gates": [
+    "independent evidence",
+    "current backbone",
+    "mechanism",
+    "matched-recall remedy"
+  ],
+  "manifest_sha256": "9ce398133cf994691368c3dea4be362f2a2078f46ab6c6a9d783582248615f0a"
+}

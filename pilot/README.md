@@ -26,9 +26,9 @@ Clone the official repositories, check out the revisions in `assets.json`, and
 place the checkpoint at `pilot/checkpoints/dinov2_vits14_pretrain.pth`.
 
 ```bash
-git clone https://github.com/dammsi/AnomalyDINO.git pilot/external/AnomalyDINO
+git clone -c core.autocrlf=false https://github.com/dammsi/AnomalyDINO.git pilot/external/AnomalyDINO
 git -C pilot/external/AnomalyDINO checkout b9d1c2648e3a5247437d4d953d907a8f3d994457
-git clone https://github.com/facebookresearch/dinov2.git pilot/external/dinov2
+git clone -c core.autocrlf=false https://github.com/facebookresearch/dinov2.git pilot/external/dinov2
 git -C pilot/external/dinov2 checkout 7764ea0f912e53c92e82eb78a2a1631e92725fc8
 ```
 
@@ -106,3 +106,15 @@ The assessor stays `pending_visual_and_provenance_review` until every review
 requirement is recorded. Small or ambiguous effects stay `inconclusive`; no
 outcome is automatically called a publication success. Model/source changes or
 protocol revisions require a new config and run, preserved alongside the old one.
+
+To export the numerical record and regenerate inspection figures without
+rerunning the encoder or overwriting the original run:
+
+```bash
+python -m pilot.render --run pilot/runs/procedural-v2 --output pilot/results/engineering-v1
+```
+
+An existing Windows clone may have CRLF files that Linux Git sees as modified.
+Match that external repository's `core.autocrlf` setting to its checkout, or use
+the explicit LF clone commands above. The run checks both the pinned revision
+and tracked-source cleanliness; it does not ignore arbitrary whitespace changes.

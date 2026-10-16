@@ -28,7 +28,7 @@ def save_example(path: Path, payload: dict, cfg: dict, thresholds: dict, *, kind
             mask = payload["remote"] if stage == "raw" else payload["remote"].repeat(p, 0).repeat(p, 1)
             axes[i, j].contour(mask.astype(float), levels=[0.5], colors="cyan", linewidths=0.8)
             fraction = float(np.mean(data[mask] > thresholds[stage]))
-            axes[i, j].set_title(f"{stage}: remote fraction > threshold = {fraction:.3f}")
+            axes[i, j].set_title(f"{stage}\nremote fraction > threshold: {fraction:.3f}", fontsize=9)
             fig.colorbar(im, ax=axes[i, j], fraction=0.04)
         for ax in axes[i]:
             ax.axis("off")
@@ -77,7 +77,7 @@ def save_effects(path: Path, summaries: dict, cfg: dict, kind: str) -> None:
     ax.set_yticks(range(len(labels)), labels)
     ax.set_xlabel("Remote alarm probability: defect minus sham (95% bounded-mean gate interval)")
     ax.set_xlim(-1.05, 1.05)
-    ax.set_title(f"{kind.upper()} — raw endpoint; conditional on bank/calibration/donor assignment")
+    ax.set_title(f"{kind.upper()} — raw endpoint\nConditional on bank, calibration and donor assignment", fontsize=10)
     ax.legend(loc="best")
     fig.tight_layout()
     fig.savefig(path, dpi=130)

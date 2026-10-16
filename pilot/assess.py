@@ -20,25 +20,30 @@ def assess(run: Path, review: dict | None = None) -> dict:
     if summary["manifest_sha256"] != digest or template["manifest_sha256"] != digest:
         raise ValueError("Manifest mismatch; assessment does not apply to this run")
     reviewed = False
+    inspection_recorded = False
+    valid = summary["integrity_passed"]
     if review:
         if review.get("manifest_sha256") != digest:
             raise ValueError("Review belongs to a different run")
-        reviewed = (
+        inspection_recorded = (
             bool(review.get("reviewer", "").strip())
             and set(template["required_files"]).issubset(review.get("inspected_files", []))
-            and all(review.get(k) is True for k in (
+        )
+        reviewed = inspection_recorded and all(review.get(k) is True for k in (
                 "data_provenance_verified", "all_edits_plausible",
                 "largest_effects_and_controls_reviewed", "no_postscore_exclusions"
             ))
-        )
+        if manifest["kind"] == "mvtec" and inspection_recorded and review.get("all_edits_plausible") is False:
+            valid = False
     cfg = manifest["protocol"]
     decisions = {}
     for name, result in summary["summaries"].items():
         decisions[name] = classify(result["raw_remote"], result["local"], cfg,
-                                   valid=summary["integrity_passed"], data_kind=manifest["kind"], reviewed=reviewed)
+                                   valid=valid, data_kind=manifest["kind"], reviewed=reviewed)
     primary = f"{cfg['primary_category']}/{cfg['primary_construction']}"
     return {"decision": decisions[primary], "primary": primary, "all_conditions": decisions,
-            "inspection_complete": reviewed, "scope": "pilot spending decision only",
+            "visual_inspection_recorded": inspection_recorded, "review_gate_passed": reviewed,
+            "scope": "pilot spending decision only",
             "unmet_publication_gates": summary["additional_gates"], "manifest_sha256": digest}
 
 

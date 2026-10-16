@@ -1,0 +1,449 @@
+{
+  "kind": "procedural",
+  "manifest_sha256": "9ce398133cf994691368c3dea4be362f2a2078f46ab6c6a9d783582248615f0a",
+  "summaries": {
+    "grid/hard": {
+      "raw_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.4583333333333333,
+        "ci": [
+          -0.325766942366352,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.25,
+          0.6666666666666666
+        ],
+        "receiver_values": [
+          1.0,
+          0.0,
+          1.0,
+          0.5,
+          0.0,
+          1.0,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.5
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "processed_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.8333333333333334,
+        "ci": [
+          0.04923305763364805,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.7083333333333334,
+          0.9583333333333334
+        ],
+        "receiver_values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "local": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.0,
+        "ci": [
+          -0.7841002756996853,
+          0.7841002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.0,
+          0.0
+        ],
+        "receiver_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "decision": "engineering_only",
+      "rates": {
+        "identity_raw_remote_alarm": 0.08333333333333333,
+        "identity_processed_remote_alarm": 0.0,
+        "identity_local_alarm": 0.0,
+        "sham_raw_remote_alarm": 0.08333333333333333,
+        "sham_processed_remote_alarm": 0.041666666666666664,
+        "sham_local_alarm": 1.0,
+        "defect_raw_remote_alarm": 0.5416666666666666,
+        "defect_processed_remote_alarm": 0.875,
+        "defect_local_alarm": 1.0
+      }
+    },
+    "grid/feather": {
+      "raw_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": -0.125,
+        "ci": [
+          -0.9091002756996853,
+          0.6591002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          -0.25,
+          0.0
+        ],
+        "receiver_values": [
+          -0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.5,
+          -0.5,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "processed_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.125,
+        "ci": [
+          -0.6591002756996853,
+          0.9091002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          -0.125,
+          0.375
+        ],
+        "receiver_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          -1.0,
+          0.0,
+          0.0,
+          0.5,
+          1.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "local": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.0,
+        "ci": [
+          -0.7841002756996853,
+          0.7841002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.0,
+          0.0
+        ],
+        "receiver_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "decision": "engineering_only",
+      "rates": {
+        "identity_raw_remote_alarm": 0.08333333333333333,
+        "identity_processed_remote_alarm": 0.0,
+        "identity_local_alarm": 0.0,
+        "sham_raw_remote_alarm": 0.5,
+        "sham_processed_remote_alarm": 0.625,
+        "sham_local_alarm": 1.0,
+        "defect_raw_remote_alarm": 0.375,
+        "defect_processed_remote_alarm": 0.75,
+        "defect_local_alarm": 1.0
+      }
+    },
+    "tile/hard": {
+      "raw_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.125,
+        "ci": [
+          -0.6591002756996853,
+          0.9091002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.0,
+          0.3333333333333333
+        ],
+        "receiver_values": [
+          1.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "processed_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.3333333333333333,
+        "ci": [
+          -0.450766942366352,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.16666666666666666,
+          0.5
+        ],
+        "receiver_values": [
+          1.0,
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "local": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.25,
+        "ci": [
+          -0.5341002756996853,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.0,
+          0.5
+        ],
+        "receiver_values": [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "decision": "engineering_only",
+      "rates": {
+        "identity_raw_remote_alarm": 0.0,
+        "identity_processed_remote_alarm": 0.0,
+        "identity_local_alarm": 0.0,
+        "sham_raw_remote_alarm": 0.0,
+        "sham_processed_remote_alarm": 0.041666666666666664,
+        "sham_local_alarm": 0.75,
+        "defect_raw_remote_alarm": 0.125,
+        "defect_processed_remote_alarm": 0.375,
+        "defect_local_alarm": 1.0
+      }
+    },
+    "tile/feather": {
+      "raw_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.2916666666666667,
+        "ci": [
+          -0.49243360903301864,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.041666666666666664,
+          0.5416666666666666
+        ],
+        "receiver_values": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.5,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "processed_remote": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.5,
+        "ci": [
+          -0.2841002756996853,
+          1.0
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.2916666666666667,
+          0.7083333333333334
+        ],
+        "receiver_values": [
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.5
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "local": {
+        "n_receivers": 12,
+        "n_trials": 24,
+        "mean": 0.0,
+        "ci": [
+          -0.7841002756996853,
+          0.7841002756996853
+        ],
+        "ci_method": "Hoeffding bounded paired-receiver mean; conservative",
+        "bootstrap_ci": [
+          0.0,
+          0.0
+        ],
+        "receiver_values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "interval_scope": "conditional on the fixed bank, calibration threshold and sampled donor assignment"
+      },
+      "decision": "engineering_only",
+      "rates": {
+        "identity_raw_remote_alarm": 0.0,
+        "identity_processed_remote_alarm": 0.0,
+        "identity_local_alarm": 0.0,
+        "sham_raw_remote_alarm": 0.041666666666666664,
+        "sham_processed_remote_alarm": 0.125,
+        "sham_local_alarm": 1.0,
+        "defect_raw_remote_alarm": 0.3333333333333333,
+        "defect_processed_remote_alarm": 0.625,
+        "defect_local_alarm": 1.0
+      }
+    }
+  },
+  "reference_checks": {
+    "grid": {
+      "passed": true,
+      "max_absolute_errors": {
+        "preprocessing": 0.0,
+        "raw_scores": 1.0132789611816406e-06,
+        "production_map": 6.587763434241778e-07,
+        "feature_tensor": 0.0
+      },
+      "tolerance": 2e-05,
+      "reference_revision": "b9d1c2648e3a5247437d4d953d907a8f3d994457",
+      "reference_mode": "informed; five-shot; seed=0"
+    },
+    "tile": {
+      "passed": true,
+      "max_absolute_errors": {
+        "preprocessing": 0.0,
+        "raw_scores": 9.5367431640625e-07,
+        "production_map": 6.46143988654313e-07,
+        "feature_tensor": 0.0
+      },
+      "tolerance": 2e-05,
+      "reference_revision": "b9d1c2648e3a5247437d4d953d907a8f3d994457",
+      "reference_mode": "informed; five-shot; seed=0"
+    }
+  },
+  "integrity_passed": true,
+  "pair_count": 96,
+  "max_identity_error": 0.0,
+  "max_direct_postprocessing_spread": 0.0,
+  "elapsed_seconds": 28.106232119025663,
+  "cuda_peak_allocated_bytes": 153247232,
+  "scientific_claim": "none; procedural data are engineering fixtures, real-data results require review",
+  "additional_gates": [
+    "independent evidence",
+    "current backbone",
+    "mechanism",
+    "matched-recall remedy"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "source_run": "/mnt/c/Users/lcawley/projects/vit-interp/pilot/runs/procedural-v2",
+  "manifest_sha256": "9ce398133cf994691368c3dea4be362f2a2078f46ab6c6a9d783582248615f0a",
+  "numerical_results_unchanged": true,
+  "encoder_rerun": false,
+  "render_source_sha256": "3e2dffa6172762a43d99e5edf0861a13d30921e01519bc684e78d04db5c5f45c",
+  "plot_source_sha256": "20a923a30a1ffa36b0e2aa320f700d4b73c73cf83d31367d986bbe3eab3fd3e9",
+  "raw_maps_location": "/mnt/c/Users/lcawley/projects/vit-interp/pilot/runs/procedural-v2/raw"
+}

@@ -1,0 +1,7 @@
+{
+  "state": "failed_no_scientific_conclusion",
+  "kind": "procedural",
+  "elapsed_seconds": 4.457885157957207,
+  "timestamp_utc": "2026-10-16T19:42:41.833761+00:00",
+  "error": "ValueError: Upstream tracked source is modified: /mnt/c/Users/lcawley/projects/vit-interp/pilot/external/dinov2"
+}

@@ -12,9 +12,10 @@ import numpy as np
 import torch
 from PIL import Image
 
+from pilot.assess import assess
 from pilot.core import (
     ExactCosineBank, alpha_mask, assert_unchanged, calibration_threshold, check_unique_files,
-    classify, densest_mask_crop, paired_summary, paste, pixel_mask, production_map, regions, select_split,
+    classify, densest_mask_crop, paired_summary, paste, pixel_mask, production_map, regions, select_split, sha256, write_json,
 )
 from pilot.prepare import validate_archive
 
@@ -134,6 +135,30 @@ class ValidityTests(unittest.TestCase):
                 archive.addfile(member, io.BytesIO(b"bad"))
             with self.assertRaises(ValueError):
                 validate_archive(path)
+
+    def test_assessment_binds_review_to_run_and_cannot_promote_procedural_results(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_json(root / "status.json", {"state": "blocked", "reason": "data absent"})
+            self.assertEqual(assess(root)["decision"], "blocked")
+            write_json(root / "status.json", {"state": "complete_engineering_only"})
+            write_json(root / "manifest.json", {"protocol": CFG, "kind": "procedural"})
+            digest = sha256(root / "manifest.json")
+            write_json(root / "summary.json", {
+                "manifest_sha256": digest, "integrity_passed": True, "additional_gates": ["real data"],
+                "summaries": {"grid/hard": {"raw_remote": {"n_receivers": 40, "ci": [.2, .4]},
+                                            "local": {"ci": [.1, .5]}}}
+            })
+            write_json(root / "review-template.json", {"manifest_sha256": digest, "required_files": ["gallery.png"]})
+            review = {"manifest_sha256": digest, "reviewer": "test", "inspected_files": ["gallery.png"],
+                      "data_provenance_verified": True, "all_edits_plausible": True,
+                      "largest_effects_and_controls_reviewed": True, "no_postscore_exclusions": True}
+            result = assess(root, review)
+            self.assertEqual(result["decision"], "engineering_only")
+            self.assertTrue(result["visual_inspection_recorded"])
+            self.assertTrue(result["review_gate_passed"])
+            with self.assertRaises(ValueError):
+                assess(root, dict(review, manifest_sha256="wrong-run"))
 
 
 if __name__ == "__main__":

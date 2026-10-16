@@ -63,6 +63,10 @@ wall-time cap while the model is resident; it records actual runtime and memory.
   post-LayerNorm patch tokens, excluding CLS/register tokens.
 - L2-normalize feature vectors; exact nearest normalized-L2 distance / 2 equals
   `1 - max cosine`. Chunking changes memory use, not the search result.
+- The release's image-level score is the mean of its top 1% of patch distances.
+  This pilot's maximum-in-B alarm is a **new prespecified regional evaluation
+  endpoint** on the native patch map. It is not that image-level score, and no
+  reproduction of the paper's image AUROC numbers is claimed.
 - Production map: OpenCV bilinear resize, SciPy Gaussian `sigma=4`, reflect
   padding, default truncation 4. The paired stimuli are 448×448; their production
   maps are also 448×448. Native parity additionally checks the original image size.

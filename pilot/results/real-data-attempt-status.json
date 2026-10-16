@@ -1,0 +1,7 @@
+{
+  "state": "blocked",
+  "kind": "mvtec",
+  "elapsed_seconds": 0.00871126598212868,
+  "timestamp_utc": "2026-10-16T19:42:50.676284+00:00",
+  "reason": "Approved dataset directory is absent; no scientific evaluation performed"
+}
