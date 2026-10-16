@@ -5,7 +5,7 @@
 Tier 0, no renderer (minutes per run). Latents mixed by a fixed random RealNVP or sinusoidal shear as in Klindt et al. Purpose: calibrate the pipeline against their reported R^2 and against Nicollier's torus numbers before touching pixels. Not a result.
 
 Tier 1, sprite worlds (minutes to an hour per run). 64 x 64 grayscale or RGB, rendered on the fly (PIL or a JAX/NumPy rasterizer). All latents continuous.
-- W1 heading: one asymmetric glyph (an arrow or "F" shape, no rotational symmetry) at fixed position with orientation theta; dynamics theta' = theta + N(0, s^2) wrapped. Static-orientation version uses frame pairs; a motion-direction version uses 4-frame clips of a dot translating with heading theta and fixed speed, so that direction is only visible across frames (Joseph et al.'s variable).
+- W1 heading: one asymmetric glyph (an arrow or "F" shape, no rotational symmetry) at fixed position with orientation theta; dynamics theta' = theta + N(0, s^2) wrapped. Static-orientation version uses frame pairs; a motion-direction version uses clips of a dot translating with heading theta and fixed speed, so that direction is only visible across frames (Joseph et al.'s variable). The motion version carries the observation-window knob (E2): the encoder sees w in {1, 2, 4, 8} frames; at w = 1 heading is unrecoverable by construction and serves as the observability floor.
 - W2 position: a dot with 2-D OU position, rho = 0.95 (Nicollier's value).
 - W3 bounded speed or position: uniform on an interval with reflecting steps.
 - W4 combined: W1 glyph with W2 position, independent dynamics (for P5).
@@ -39,6 +39,8 @@ Let theta be the ground-truth angle, binned into B = 64 equal bins; m_b = mean o
 - Linear identifiability. R^2(z to y) and R^2(y to z) with ridge, as in Klindt and Nicollier; circular-regression R^2 from y to (cos theta, sin theta).
 - Kurtosis. Excess kurtosis of each coordinate of y over the data distribution; excess kurtosis along 100 random unit projections (SIGReg's own statistic family).
 - Cross-seed alignment. For each harmonic k, the subspace spanned by C_k rows across seeds: principal angles; report the mean cosine. Coordinate-level: maximum absolute correlation matching across seeds (Hungarian), compared with the random-rotation reference sqrt(2 ln d / d).
+- Equivariance consistency (E3). For each shift Delta in bin units, solve the orthogonal Procrustes problem min_R ||M_shift(Delta) - M R^T||_F^2 over orthogonal R, where M_shift is M with rows cyclically shifted by Delta; residual rho(Delta) = minimum / ||M_shift||_F^2; score = 1 - mean over Delta of rho(Delta). Also report the composition error ||R(Delta_1 + Delta_2) - R(Delta_2) R(Delta_1)||_F averaged over pairs. Use B >= 4d bins (B = 256 when d = 32) so the test is not vacuous (`04-theory-notes.md`, 5b).
+- Training trajectory (E1). Save checkpoints at a log-spaced schedule (every 2^k steps); compute the spectrum and the concentration share at each; plot against steps alongside the random-init value.
 - Behavioral use. Next-step prediction error of the predictor; for Tier 2/3, planning success or surprise metrics where the environment supports them, to show the code is used, not decorative.
 - Pooling (Tier 3). Direction probes per patch position; average probe weight vectors across positions before orthogonalization; report dimensionality before and after pooling and after regressing out speed.
 
@@ -53,6 +55,7 @@ A run counts as converged if, at the end of training, (a) the alignment / predic
 - Filling order (P5): W4 with d in {3, 4, 5, 6, 8, 10, 12} at R1 default lambda; 5 seeds.
 - Torus (P4): W5 and Tier 2 reacher at R1 Gaussian target and R4 matched target; 5 seeds (expect optimization failures; see K4).
 - Controls: random-init and time-shuffled at every world, 3 seeds.
+- Exploratory: observation window w in {1, 2, 4, 8} on W1-motion at R1 default and R3, 3 seeds (E2); checkpoint trajectories come free from every run (E1); equivariance scores come free from every cell (E3).
 
 Approximate run count for Tier 1: dynamics 2 x 4 x 3 = 24; regularizer 2 x 12 x 3 + extras about 80; EMA width 3 x 3 = 9; filling order 7 x 5 = 35; torus 2 x 5 = 10; controls about 30. Total about 190 runs at 10-20 minutes each: 30-60 GPU-hours. Tier 2: about 20 runs at 2-4 hours: 40-80 GPU-hours. Tier 3: inference over a few thousand clips plus probes: under 10 GPU-hours. Total under 150 GPU-hours on one 24-48 GB card; wall-clock two to three weeks with small models run in parallel.
 

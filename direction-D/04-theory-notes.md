@@ -52,6 +52,14 @@ For d = 2K, the alignment objective's value depends only on the span, and the sp
 
 Falsified by: harmonic subspaces failing to align across seeds while R^2 to (cos, sin) is high (which would indicate the regression is fitting a non-canonical decomposition, i.e., eigenvalues not well separated at that s).
 
+## 5b. Equivariance consistency is the harmonic basis
+
+Say a code m(theta) in R^d is equivariance-consistent under rotation if for every shift Delta there is one linear map R(Delta) with m(theta + Delta) = R(Delta) m(theta) for all theta. Then the span of {m(theta)} is a finite-dimensional subspace of functions on the circle that is invariant under all shifts, and every shift-invariant finite-dimensional subspace of L^2(S^1) is a direct sum of Fourier modes (the irreducible representations of SO(2) are the pairs (cos k theta, sin k theta)). So an equivariance-consistent code is a harmonic code, with R(Delta) block-diagonal in the harmonic basis, rotating the k-th block by k Delta. Conversely a harmonic code is equivariance-consistent. The two readouts, harmonic explained variance and equivariance residual, therefore measure one property from two sides (E3), and the harmonic regression is the relational evaluation that Pres et al.'s framework asks for, applied to a representation rather than to behavior.
+
+Two cautions for the estimator. If the code is sampled at B angle bins and d >= B, a linear R(Delta) exists for any injective code (define it on the span), so the test is empty; use B >= 4d or restrict R(Delta) to be orthogonal, which additionally requires stationarity of inner products <m(theta), m(theta')> depending only on theta - theta'. And an equivariance fit per Delta does not by itself check that the maps compose, R(Delta_1 + Delta_2) = R(Delta_2) R(Delta_1); report the composition error as the stronger test.
+
+Falsified by: E3 failing, which would mean the harmonic regression is fitting something other than a shift-invariant subspace (for example a code that is periodic in theta but with angle-dependent speed around the ring).
+
 ## 6. What the torus "distortion" should consist of (P4)
 
 On T^2 with a Gaussian target and width d > 4, the ordered eigenfunctions include cross-harmonics cos(k1 theta1 + k2 theta2) with eigenvalue exp(-(k1^2 + k2^2) s^2 / 2). A linear probe from the code to (cos theta1, sin theta1, cos theta2, sin theta2) uses only the k = (1,0) and (0,1) pairs; variance in cross terms is "unexplained" to that probe, which lowers R^2(Y to Z) while R^2(Z to Y) stays high because the code is a deterministic function of (theta1, theta2). This reproduces Nicollier's asymmetry (0.493 vs 0.986) with a mechanism and predicts that adding cross-harmonic features as regressors closes the gap.
@@ -69,3 +77,4 @@ Falsified by: K3.
 - Which layer of a deep encoder carries the code (the Physics Emergence Zone is an empirical depth phenomenon outside this framework).
 - Behavior of the predictor network (we probe encoders; the predictor is left for later).
 - Anything about non-stationary or action-conditioned dynamics except through the released LeWM analysis, where actions are present and the theory is approximate.
+- Anything under partial observability. The theory assumes the latent is recoverable from the observation the encoder sees. When it is not (heading from a single frame; task progress from a single egocentric view, the case Long-WAM makes for long context), the slowest eigenfunctions are functions of the belief state, which lives in the history, and a frame encoder cannot carry them. The observation-window knob (E2) marks where the assumption starts to hold; nothing here predicts what happens below it.

@@ -23,6 +23,15 @@ Status column: V = verified in the primary source on 2026-10-13 (abstract, HTML 
 | littwin2024jepa | 2407.03475 | Littwin et al. How JEPA Avoids Noisy Features. NeurIPS 2024. | T |
 | manifoldsteering2026 | 2605.05115 | Manifold Steering Reveals the Shared Geometry of Neural Network Representation and Behavior. May 2026. | T (search) |
 
+## Framing sources (flavor; added 2026-10-13)
+
+| Key | arXiv | Citation | Status |
+|---|---|---|---|
+| pres2026consistency | 2608.05188 | Pres, Li, Ruis, Guo, Hu, Damani, Puri, Lubana, Andreas. Position: It's Time to Optimize LLMs for Self-Consistency. ICML 2026 Position track. | V (HTML) |
+| pres2026selfctrl | 2606.18327 | Pres et al. Self-CTRL: Self-Consistency Training with Reinforcement Learning. 2026. | V (abstract) |
+| cammarata2026clean | - | Cammarata. Neural Networks Are Already Clean. Goodfire essay, 15 Oct 2026. already-clean.goodfire.com | M (secondary only; host blocked) |
+| huang2026longwam | - | Huang, Zhang, Liu, Liu, Yang, Mao, Wang, Xiao, Lin, Hu, Chu, Liu, Fan, Qi, Han, Chen. Long-WAM: Scaling the Context of World-Action Models. arXiv preprint 2026 (ID to fill from project page). | V (project page) |
+
 ## Classical slowness / spectral theory
 
 | Key | arXiv | Citation | Status |

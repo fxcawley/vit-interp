@@ -26,6 +26,12 @@ P6 V-JEPA 2. Layer 8 ViT-L, continuous directions: >= 70% of pooled direction-su
 
 P7 LeWorldModel. Push-T orientation: K_5 >= 2 at the released checkpoint; K_5 moves with lambda in the direction of P3 on retraining.
 
+## Exploratory (reported separately; no confirmatory weight)
+
+E1 Spectral concentration rises monotonically over training checkpoints and with lambda; early checkpoints match the random-init null.
+E2 W1-motion: no heading code at a one-frame window; code appears and sharpens at 2, 4, 8 frames.
+E3 Equivariance residual tracks one minus harmonic explained variance in every cell.
+
 ## Kill criteria
 
 K1 P1 fails (no concentration beyond the random-init null, or non-periodic structure under continuous theta).

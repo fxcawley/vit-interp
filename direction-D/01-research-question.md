@@ -46,6 +46,14 @@ P6 (V-JEPA 2). On continuous-direction Kubric stimuli at Joseph et al.'s layer 8
 
 P7 (LeWorldModel). On Push-T with the released checkpoint, the T-block orientation has K_5 >= 2 (Gaussian target, d larger than latent dimension); retraining with the official code across lambda shifts K_5 in the direction of P3.
 
+### 4b. Exploratory predictions (reported as exploratory, never as headline)
+
+E1 (cleanliness over training). Spectral concentration, measured as the explained-variance share of the eigenvalue-predicted leading harmonics, increases monotonically over training checkpoints and with lambda up to its plateau; early checkpoints are indistinguishable from the random-init null. Motivation: Cammarata's "already clean" thesis that better-trained models have cleaner representations; his own proposed test is the checkpoint trajectory. Labeled exploratory because the thesis is contested and the measurement is new.
+
+E2 (observability window). In the motion-direction version of W1, where heading is visible only across frames, the harmonic heading code is absent at a one-frame observation window and appears and sharpens as the window grows (2, 4, 8 frames); a predictor with access to the latent history can carry heading the encoder cannot. Motivation: the recoverability assumption shared by the theory papers and the Long-WAM observation that the current frame is not the state.
+
+E3 (equivariance consistency). The equivariance residual (`05-methods.md`, section 3) tracks one minus the harmonic explained variance across all cells, as the equivalence in `04-theory-notes.md` section 5b requires; a cell where they diverge indicates a measurement failure, not a new phenomenon.
+
 ## 5. Kill criteria
 
 K1 (basis fails). In the EMA toy model, the trained spectrum is not more concentrated on low harmonics than the random-init null, or m(theta) is not periodic-smooth (for example, eight clusters rather than a ring under continuous theta). Then the spectral account is dead and the paper does not exist in this form; what remains is a replication of Nicollier's R^2 result.
