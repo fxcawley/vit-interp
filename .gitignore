@@ -2,6 +2,10 @@
 direction-D/external/
 direction-D/code/runs/
 direction-D/code/data/
+pilot/external/
+pilot/data/
+pilot/checkpoints/
+pilot/runs/
 **/__pycache__/
 *.pyc
 .venv/

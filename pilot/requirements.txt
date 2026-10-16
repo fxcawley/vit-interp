@@ -1,0 +1,12 @@
+# Use a CUDA-compatible PyTorch installation. The recorded run uses torch 2.10.0+cu128.
+torch>=2.6
+torchvision>=0.21
+numpy>=2.0
+Pillow>=10
+scipy>=1.14
+opencv-python-headless>=4.10
+matplotlib>=3.9
+scikit-learn>=1.5
+faiss-cpu>=1.9
+tifffile>=2024.9
+tqdm>=4.66

@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-16",
+  "scientific_pilot_state": "blocked",
+  "reason": "Official MVTec AD grid download returned a KLA Internet Security Access Blocked HTML page instead of an XZ archive.",
+  "dataset_url": "https://www.mydrive.ch/shares/150456/bb0b2e3dc804ccb8b4485e01f8e4493b/download/420937487-1629959044/grid.tar.xz",
+  "independent_current_backbone_state": "blocked",
+  "backbone_url": "https://huggingface.co/api/models/facebook/dinov3-vits16-pretrain-lvd1689m",
+  "backbone_response": "KLA Internet Security Access Blocked HTML page",
+  "available": [
+    "Pinned official AnomalyDINO source",
+    "Pinned official DINOv2 source",
+    "Official DINOv2 ViT-S/14 checkpoint, SHA256 verified",
+    "CUDA-enabled WSL environment"
+  ],
+  "next_independent_work": "Unit tests, released-pipeline parity and procedural-data engineering demonstration.",
+  "needed_for_real_data": "An approved local public MVTec AD grid/tile dataset, or approved access to its official download.",
+  "interpretation": "Access failure is not evidence for or against the scientific hypothesis."
+}
